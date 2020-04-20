@@ -1,11 +1,96 @@
 *{
     margin: 0;
 }
+.navigation_checkbox{
+    display:none;
+}
+.navigation_nav{
+    width:0;
+    position: fixed;
+    z-index: 1100;
+    top: 20%;
+    left: 28%;
+    opacity: 0;
+}
+.navigation_button{
+    height: 4rem;
+    width:4rem;
+    border-radius: 50%;
+    position:fixed;
+    top:0;
+    right:2%;
+    z-index: 1200;
+    background-color: white;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
 
+.navigation_background{
+    height: 4rem;
+    width:4rem;
+    border-radius: 50%;
+    z-index: 1000;
+    position:fixed;
+    top:0;
+    right:2%;
+    background-image:radial-gradient(rgba(247, 129, 174,0.8), rgba(59, 4, 21,0.8)) ;
+    transition:transform .8s;
+    
+}
 
+.navigation_checkbox:checked~ .navigation_background{
 
+    transform:scale(100);
 
-header{height:160px;
+}
+.navigation_checkbox:checked~ .navigation_nav{
+
+    opacity: 1;
+    width: 100%;
+}
+.navigation_icon{
+
+width: 2.25rem;
+height: 2px;
+position: relative;
+margin-top: 2rem;
+
+background-color: rgb(58, 59, 59);
+display: inline-block;
+
+}
+.navigation_icon::before{
+
+    width: 2.25rem;
+    height: 2px;
+    background-color: rgb(58, 59, 59);
+    display: inline-block;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+
+}
+.navigation_icon::after{
+    content: "";
+    width: 2.25rem;
+    height: 2px;
+    background-color: rgb(58, 59, 59);
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    
+
+}
+.navigation_button:hover .navigation_icon::before{
+    top:-0.75rem
+}
+.navigation_button:hover .navigation_icon::after{
+    top:0.75rem
+}
+
+header{height:320px;
 background-image: url("images/header.jpg");
 background-repeat: no-repeat;
 background-position: center; 
@@ -22,17 +107,16 @@ footer{ background-color:black;
 }
 body   {background-color:black;}
 ul{list-style: none;
-}li{display:inline-block;
+}li{width: 30%;
     padding:1%;
     margin: 1%;
-    color:rgb(105, 17, 58);
-    font-size: 16pt;
+    font-size: 1.60em;
     
 }
 
     
 
-header .logo{width:20%;
+header .logo{width:30%;
     background-image: url("images/logo.png");
     background-size:contain;
     height:300px;
@@ -40,8 +124,8 @@ header .logo{width:20%;
     font-size: 0pt;
     display: inline-block;
     position: relative;
-    top:-50px;
-    left:-70px;
+    top:-10px;
+    left:30%;
     
 
 }
@@ -51,28 +135,28 @@ input[type=text] {
     padding: 6px;
     margin-top: 8px;
     border: none;
-    font-size: 17px;
+    font-size: 1em;
     position: relative;
-    top:-300px;
-    width:50%;
-    left:-22%;
+    top:75%;
+    width:60%;
+    left:-20%;
     border-radius: 40px;
   }
   a{text-decoration: none;
-color:rgb(105, 17, 58);}
+    color: rgb(252, 156, 172);}
 a.launch{color: pink;}
 a.covid{color:yellow;
-    background-color:rgb(105, 17, 58) ;
+    background-color:transparent ;
     padding: 14px;
-    border-radius: 40px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
 text-decoration: none;
 }
-button.header{background: transparent;
-    font-size: 14pt;
-    border: none;
-}
-li.header{background-color: yellow;
-border-radius: 40px;;}
+
+li.header{background-color:rgba(53, 2, 13,0.8) ;
+    text-align: center;
+border-bottom-left-radius: 20px;
+border-top-right-radius: 20px;}
 li.right{float:right;
 color:pink;
 text-decoration: underline;
@@ -86,20 +170,13 @@ background-repeat: no-repeat;
 
 }
 
-li.copyright{float:right;
-    color:pink;
-    position: relative;
-    top:-50px;
-    right:-25%;
-font-size:18pt;
-text-decoration: underline;
-}
+
 li.left{display:flex;
 flex-direction: column;
 color:pink;
 position: relative;
 right:0;
-font-size:18pt;
+font-size:2em;
 text-decoration: underline;}
 div.intro{width: 100%;
     
@@ -117,7 +194,7 @@ div.intro{width: 100%;
 h1.intro{animation-name: intro;
     color:rgb(7, 7, 75);
     animation-duration: 0.50s;
-    font-size: 36pt;
+    text-decoration: none;
     animation-iteration-count: 2;
 }
 @keyframes intro{
@@ -130,9 +207,9 @@ h1.intro{animation-name: intro;
 p.intro{margin-top: 20px;;
 animation-name: introduction;
 animation-duration: 1s;
-font-size: 36px;
+font-size: 2em;
 color:rgb(18, 120, 160);
-background-color:rgb(9, 9, 63);
+background-color:rgba(255,255,255,0.4);
 width:45%;
 border-bottom-left-radius: 20px;
 border-top-right-radius: 20px;
@@ -147,7 +224,7 @@ left:30%;}
     }
     to{text-transform: lowercase;
         background-color: rgb(153, 119, 130);
-    font-size: 18pt;}
+    font-size: 0.75em;}
 }
 button.suprise{position: relative;
     margin-top: 25px;
@@ -155,13 +232,13 @@ button.suprise{position: relative;
     padding: 15px;
     border-style: solid;
     border-color: rgb(5, 16, 82);
-    font-size: 24pt;
+    font-size: 2em;
     border-radius: 40px;}
     p.soon{text-align: center;
     width: 34%;
 position: relative;
 right: -35%;
-font-size: 20pt;
+font-size: 1.75em;
 }
 div.launch{background-color: rgb(250, 233, 236);
     background-image: url("images/comingsoon0.jpg");
@@ -249,7 +326,7 @@ border-width: thick;
 p.launch{color: white;
 text-align: center;
 background-color:rgb(117, 3, 56) ;
-font-size: 22pt;
+font-size: 1.80em;
 width:30%;
 position: relative;
 left: 35%;
@@ -270,7 +347,7 @@ background-size: 100%;
 width:100%;
 }
 p.review{text-align: center;
-font-size: 28pt;
+font-size: 2em;
 color: rgb(6, 6, 68);
 background-color: rgb(238, 180, 74);
 width: 30%;
@@ -312,7 +389,7 @@ border-style: solid;
 color: white;
 }
 .rev figcaption{color:white;
-font-size: 16pt;
+font-size: 1.20em;
 width: 80%;
 text-align: center;
 position: relative;
@@ -338,10 +415,10 @@ padding:10px;
 width: 8%;
 border-width: 0px;
 border-radius: 20px;
-font-size: 14pt;
+font-size: 1em;
 position: relative;
 color: pink;
-top:390px;
+top:400px;
 left:20%;
 text-decoration: underline;}
 img.mathew{
@@ -398,47 +475,51 @@ img.ibiza:hover{
   p.soon{color: rgb(13, 55, 58);}
   h1{text-decoration: underline;
       color:rgb(247, 164, 255);
-      font-size:28pt;
+      font-size:2em;
   }
-  p{font-size: 20pt;
+  p{font-size: 1.40em;
 color: rgb(64, 228, 228);}
 
 button.write{
     background-color: black;
     color: white;
     width:100%;
-    font-size: 18pt;
+    font-size: 1.50em;
     border-color: transparent;
     position: relative;
-    top:170px;
+    top:230px;
 
 }
-button.writea{background-color: black;
+button.writea{
+    background-color: black;
     color: white;
     width:100%;
-    font-size: 18pt;
+    font-size: 1.50em;
     border-color: transparent;
     position: relative;
-    top:210px;}
+    top:230px;
+
+}
+
 .hide{
     display: none;
 }
 .mathew:hover + .hide{
     display:block;
     color:yellow;
-    font-size: 24pt;
+    font-size: 2.4em;
     text-decoration: underline;
 }
 .naomi:hover + .hide{
     display:block;
     color:yellow;
-    font-size: 24pt;
+    font-size: 2.4em;
     text-decoration: underline;
 }
 .ibiza:hover + .hide{
     display:block;
     color:yellow;
-    font-size: 24pt;
+    font-size: 2.4em;
     text-decoration: underline;
 }
 p.favourite{text-align: center;
@@ -450,7 +531,7 @@ left: 35%;
 border-bottom-left-radius: 20px;
 border-top-right-radius: 20px;
 background-color: rgb(5, 167, 167);
-font-size: 24pt;}
+font-size: 2em;}
 div.favourite{height:0px;
     width: 100%;
     background-color: rgb(127, 167, 252);
@@ -482,14 +563,14 @@ text-align: center;}
 .card {background-color:rgb(91, 121, 150);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 30%;
-    height: 610px;
+    height: 570px;
     margin: auto;
     overflow: hidden;
     text-align: center;
     font-family: arial;
   }
   .card:hover{
-      height: 704px;  
+      height: 690px;  
   }
 p.know{text-decoration: underline;
     padding-top: 60px;
@@ -502,7 +583,7 @@ height:350px;
     padding-top: 20px;
     padding-bottom: 50px;
     color: rgb(14, 1, 1);
-    font-size: 18px;
+    font-size: 1.6em;
   }
   .card button {
     border: none;
@@ -514,7 +595,7 @@ height:350px;
     text-align: center;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
+    font-size: 1.8em;
   }
   section.suprise
   {display:flex;
@@ -543,7 +624,7 @@ button.top:hover{
     bottom: 0;
     background-color: black;
     color: white;
-    font-size:14pt;
+    font-size:1em;
 }
 
 .popup{height: 100%;
@@ -584,8 +665,47 @@ vertical-align: left;}
 .popup_right{width: 70%;
 display: table-cell;
 vertical-align: top;}
+@media screen and (max-width:1426px){
+    div.suprise{background-color: rgb(196, 161, 167);
+        height: 900px;
+}
+@media screen and (max-width:1322px){
+    .card:hover{
+        height:715px;
+    }
+
+}
+@media screen and (max-width:1298px){
+    button.suprise{
+        left:1%;
+    }
+}
+@media screen and (max-width:1148px){
+    button.suprise{
+        left:25%;
+    }
+}
 
 @media screen and (max-width: 1024px) {
+    header{
+        height: 250px;
+    }
+    button.write{
+        font-size: 1.20em;
+    }
+    button.writea{top:195px;
+        font-size: 1.20em;
+    }
+    button.more{
+        font-size: 1.20em;
+    }
+    p.price{
+        font-size: 1em;
+    }
+    li.left{
+        font-size: 1.2em;
+    }
+    
     input[type=text]{
         left:-15%;
     }
@@ -593,7 +713,7 @@ vertical-align: top;}
     left: 20%;
     }
     button.suprise{
-        left:25%;
+        left:1%;
     }
     div.launch{
         height: 1060px;;
@@ -615,7 +735,7 @@ vertical-align: top;}
         height: 900px;
     }
     .card:hover{
-        height: 760px;
+        height: 720px;
     }
     p.suprise{
         left:40%;
@@ -625,12 +745,10 @@ vertical-align: top;}
         right: 1%;
         width:35%;
     }
-    li.copyright{
-        right:-35%;
-    }
+    
     p.review{
         width: 40%;
-        font-size:22pt ;
+        font-size:1.80em ;
     }
     input.new{
         left: -51%;
@@ -642,7 +760,25 @@ vertical-align: top;}
         left: 28%;
     }
 }
+ 
+@media screen and (max-width:993px){
+button.writea{
+    top:160px;
+}   
+button.write{
+    top:140px;
+}    
     
+}
+@media screen and (max-width:980px) {
+
+.price{
+    padding-bottom: 30px;
+}
 
 
 
+
+
+    
+}}
